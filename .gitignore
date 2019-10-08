@@ -1,0 +1,4 @@
+credentials.py
+jupyterhub_cookie_secret
+jupyterhub.sqlite
+__pycache__/

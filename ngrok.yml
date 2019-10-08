@@ -1,0 +1,10 @@
+authtoken: 4jNTfHoJPHaRQmELKacBx_4dBCAEs1VK2oV5FALZ4V8
+web_addr: "6001"
+tunnels:
+  jupyterhub:
+    addr: 8000
+    proto: http
+    bind_tls: true
+  ssh:
+    addr: 22
+    proto: tcp
