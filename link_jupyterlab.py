@@ -26,7 +26,7 @@ request_headers = {
   "apikey": rebrandly_key
 }
 
-r = requests.post("https://api.rebrandly.com/v1/links",
+r = requests.post("https://api.rebrandly.com/v1/links/" + str(link_id),
 	data=json.dumps(link_request), headers=request_headers)
 link = r.json()
 
