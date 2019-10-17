@@ -1,0 +1,10 @@
+[Unit]
+Description=link_jupyterhub
+After=ngrok.service
+
+[Service]
+ExecStart=/home/sfserver/miniconda3/bin/python /home/sfserver/config/link_jupyterhub.py
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
