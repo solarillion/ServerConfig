@@ -31,4 +31,4 @@ r = requests.post("https://api.rebrandly.com/v1/links/" + str(link_id),
 link = r.json()
 
 slack = Slacker(keys["slack"])
-slack.chat.post_message("#server_users", "And we're back on. *flashes cue light*­\nJupyterHub: " + str(jupyterhub.json()["public_url"]) + "\nSSH: " + str(ssh.json()["public_url"]) + "\nVisit rebrand.ly/sf_jupyter for JupyterHub")
+slack.chat.post_message("#server_users", "And we're back on. *flashes cue light*­\nJupyterHub: " + str(jupyterhub.json()["public_url"]) + "\nSSH: " + str(ssh.json()["public_url"]) + "\nVisit rebrand.ly/sf_jupyter for JupyterHub.")
