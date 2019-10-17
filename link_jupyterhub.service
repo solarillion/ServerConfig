@@ -1,8 +1,10 @@
 [Unit]
 Description=link_jupyterhub
+Requires=ngrok.service
 After=ngrok.service
 
 [Service]
+ExecStartPre=/bin/sleep 10
 ExecStart=/home/sfserver/miniconda3/bin/python /home/sfserver/config/link_jupyterhub.py
 Type=oneshot
 
