@@ -1,4 +1,4 @@
-credentials.py
+credentials/
 jupyterhub_cookie_secret
 jupyterhub.sqlite
 __pycache__/

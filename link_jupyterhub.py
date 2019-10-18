@@ -4,7 +4,7 @@ import os
 import json
 import requests
 from slacker import Slacker
-from credentials import *
+from credentials.keys import *
 
 rebrandly_key = keys["rebrandly"]
 link_id = keys["link"]
