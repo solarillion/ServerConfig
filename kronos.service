@@ -1,0 +1,18 @@
+[Unit]
+Description=kronos
+Requires=ngrok.service
+After=ngrok.service
+
+[Service]
+ExecStartPre=/bin/sleep 10
+EnvironmentFile=/lib/systemd/system/kronos.env
+ExecStart=/home/sfserver/miniconda3/bin/python /home/sfserver/utils/Kronos/app.py
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+IgnoreSIGPIPE=true
+Restart=always
+RestartSec=3
+Type=simple
+
+[Install]
+WantedBy=multi-user.target

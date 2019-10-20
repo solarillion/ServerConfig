@@ -5,6 +5,10 @@ tunnels:
     addr: 8000
     proto: http
     bind_tls: true
+  kronos:
+    addr: 7277
+    proto: http
+    bind_tls: true
   ssh:
     addr: 22
     proto: tcp
