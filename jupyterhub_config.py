@@ -915,3 +915,8 @@ c.Spawner.default_url = '/lab'
 
 ## The number of threads to allocate for encryption
 #c.CryptKeeper.n_threads = 16
+
+#-----------------------------------------------------------------------------
+# JupyterLab LaTeX configuration
+#-----------------------------------------------------------------------------
+c.LatexConfig.latex_command = 'pdflatex'
