@@ -1,11 +1,11 @@
 [Unit]
-Description=link_jupyterhub
+Description=post_links
 Requires=ngrok.service
 After=ngrok.service
 
 [Service]
 ExecStartPre=/bin/sleep 10
-ExecStart=/home/sfserver/miniconda3/bin/python /home/sfserver/config/link_jupyterhub.py
+ExecStart=/home/sfserver/miniconda3/bin/python /home/sfserver/config/post_links.py
 Type=oneshot
 
 [Install]
