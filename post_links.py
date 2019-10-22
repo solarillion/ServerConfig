@@ -45,4 +45,4 @@ link = r.json()
 ssh_ngrok_port = ssh.json()["public_url"].split(":")[2]
 
 slack = Slacker(slack_key)
-slack.chat.post_message("#server_users", "And we're back on. *flashes cue light*­\nJupyterHub: " + str(jupyterhub.json()["public_url"]) + "\nVisit rebrand.ly/sf_jupyter to access JupyterHub.\nKronos: " + str(kronos.json()["public_url"]) + "\nVisit rebrand.ly/sf_kronos to access Kronos.\nSSH: "+ str(ssh.json()["public_url"]) + "\nTo access the server over SSH, run `ssh USER@0.tcp.ngrok.io -p" + ssh_ngrok_port +"` in your Terminal, replacing USER with your server username.")
+slack.chat.post_message("#server_users", "And we're back on. *flashes cue light*­\nJupyterHub: " + str(jupyterhub.json()["public_url"]) + "\nVisit rebrand.ly/sf_jupyter to access JupyterHub.\nKronos: " + str(kronos.json()["public_url"]) + "\nVisit rebrand.ly/sf_kronos to access Kronos.\nSSH: "+ str(ssh.json()["public_url"]) + "\nTo access the server over SSH, run\n`ssh USER@0.tcp.ngrok.io -p" + ssh_ngrok_port +"`\nin your Terminal, replacing USER with your server username.")
