@@ -1,6 +1,5 @@
 import slack
 from credentials.keys import *
-import time
 
 tars_token = keys["slack"]
 tars_id = keys["tars"]
