@@ -41,7 +41,7 @@ orientees_not_added = []
 for i in orientees:
     orientees_not_added.append(tars.users_info(user=i).data["user"]["profile"]["real_name"])
 
-tars_db.child(keys["key_fb_tars"].child("ta").remove()
+tars_db.child(keys["key_fb_tars"]).child("ta").remove()
 for i in tas:
     tars_db.child(keys["key_fb_tars"]).child("ta").update({str(i): str(tars.users_info(user=i).data["user"]["profile"]["real_name"])})
 
