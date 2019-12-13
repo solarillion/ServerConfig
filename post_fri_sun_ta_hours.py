@@ -36,7 +36,7 @@ db.child(k).child("polls").child(fri_sun_poll).remove()
 
 text = "TA Hours for Friday (" + friday.strftime("%d-%m-%Y") + ") through Sunday (" + sunday.strftime("%d-%m-%Y") + ") :\n"
 for block in poll["message"][1:-3]:
-	text += block["text"]["text"].split("-")[1].strip() + "\n"
+	text += block["text"]["text"].split("`")[0].strip() + " " + block["text"]["text"].split("`")[2] + "\n"
 
 tars.chat_postMessage(channel=sf_ta, text=text)
 tars.chat_postMessage(channel=orientation_assignments, text=text)
