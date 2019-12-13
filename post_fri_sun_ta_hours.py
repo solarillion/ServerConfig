@@ -10,7 +10,7 @@ def next_weekday(d, weekday):
 	return d + datetime.timedelta(days_ahead)
 today = datetime.date.today()
 friday = next_weekday(today, 4)
-sunday = next_weekday(today, 6)
+sunday = next_weekday(friday, 6)
 
 tars_token = keys["slack"]
 tars_id = keys["tars"]
@@ -36,8 +36,12 @@ db.child(k).child("polls").child(fri_sun_poll).remove()
 
 text = "TA Hours for Friday (" + friday.strftime("%d-%m-%Y") + ") through Sunday (" + sunday.strftime("%d-%m-%Y") + ") :\n"
 for block in poll["message"][1:-3]:
-	text += block["text"]["text"].split("`")[0].strip() + " " + block["text"]["text"].split("`")[2] + "\n"
+	try:
+		text += block["text"]["text"].split("`")[0].strip() + " " + block["text"]["text"].split("`")[2] + "\n"
+	except:
+		text += block["text"]["text"] + "\n"
 
+tars.chat_delete(channel=sf_ta, ts=fri_sun_poll.replace("-", "."))
 tars.chat_postMessage(channel=sf_ta, text=text)
 tars.chat_postMessage(channel=orientation_assignments, text=text)
 tars.chat_postMessage(channel=orientation_project, text=text)
