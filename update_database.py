@@ -50,6 +50,6 @@ tars_db.child(keys["key_fb_tars"]).child("admin").remove()
 for i in tas:
     tars_db.child(keys["key_fb_tars"]).child("ta").update({str(i): str(tars.users_info(user=i).data["user"]["profile"]["real_name"])})
 for i in admins:
-    tars_db.child(keys["key_fb_tars"]).child("ta").update({str(i): str(tars.users_info(user=i).data["user"]["profile"]["real_name"])})
+    tars_db.child(keys["key_fb_tars"]).child("admin").update({str(i): str(tars.users_info(user=i).data["user"]["profile"]["real_name"])})
 
 tars.chat_postMessage(channel=keys["tars_admin"], text="Orientees who haven't been added to the database: " + str(orientees_not_added))
