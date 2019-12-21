@@ -1,0 +1,9 @@
+0 19 * * 6 /home/sfserver/miniconda3/bin/python3 /home/sfserver/config/request_office_hours.py
+0 05 * * 0 /home/sfserver/miniconda3/bin/python3 /home/sfserver/config/update_database.py
+0 17 * * 0 /home/sfserver/miniconda3/bin/python3 /home/sfserver/config/remind_office_hours.py
+0 22 * * 0 /home/sfserver/miniconda3/bin/python3 /home/sfserver/config/post_office_hours.py
+0 19 * * 6 /home/sfserver/miniconda3/bin/python3 /home/sfserver/config/request_ta_hours.py
+0 16 * * 0 /home/sfserver/miniconda3/bin/python3 /home/sfserver/config/remind_mon_thu_ta_hours.py
+5 18 * * 0 /home/sfserver/miniconda3/bin/python3 /home/sfserver/config/post_mon_thu_office_hours.py
+0 16 * * 4 /home/sfserver/miniconda3/bin/python3 /home/sfserver/config/remind_fri_sun_ta_hours.py
+5 18 * * 4 /home/sfserver/miniconda3/bin/python3 /home/sfserver/config/post_fri_sun_ta_hours.py

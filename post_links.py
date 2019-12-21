@@ -3,13 +3,14 @@
 import os
 import json
 import requests
-from slacker import Slacker
+import slack
 from credentials.keys import *
 
 rebrandly_key = keys["rebrandly"]
 jupyterhub_link_id = keys["jupyterhub"]
 kronos_link_id = keys["kronos"]
 slack_key = keys["slack"]
+server_users = keys["server_users"]
 
 jupyterhub = requests.get("http://localhost:6001/api/tunnels/jupyterhub")
 kronos = requests.get("http://localhost:6001/api/tunnels/kronos")
@@ -44,5 +45,5 @@ link = r.json()
 
 ssh_ngrok_port = ssh.json()["public_url"].split(":")[2]
 
-slack = Slacker(slack_key)
-slack.chat.post_message("#server_users", "And we're back on. *flashes cue light*­\nJupyterHub: " + str(jupyterhub.json()["public_url"]) + "\nVisit rebrand.ly/sf_jupyter to access JupyterHub.\nKronos: " + str(kronos.json()["public_url"]) + "\nVisit rebrand.ly/sf_kronos to access Kronos.\nSSH: "+ str(ssh.json()["public_url"]) + "\nTo access the server over SSH, run\n`ssh USER@0.tcp.ngrok.io -p" + ssh_ngrok_port +"`\nin your Terminal, replacing USER with your server username.")
+tars = slack.WebClient(slack_key)
+tars.chat_postMessage(channel=server_users, text="And we're back on. *flashes cue light*­\nJupyterHub: " + str(jupyterhub.json()["public_url"]) + "\nVisit rebrand.ly/sf_jupyter to access JupyterHub.\nKronos: " + str(kronos.json()["public_url"]) + "\nVisit rebrand.ly/sf_kronos to access Kronos.\nSSH: "+ str(ssh.json()["public_url"]) + "\nTo access the server over SSH, run\n`ssh USER@0.tcp.ngrok.io -p" + ssh_ngrok_port +"`\nin your Terminal, replacing USER with your server username.")
