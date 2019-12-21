@@ -19,6 +19,7 @@ tars = slack.WebClient(token=tars_token)
 sf_ta = keys["sf_ta"]
 orientation_assignments = keys["orientation_assignments"]
 orientation_project = keys["orientation_project"]
+general = keys["general"]
 
 config = {
   "apiKey": keys["tars_fb_key"],
@@ -45,3 +46,4 @@ tars.chat_delete(channel=sf_ta, ts=mon_thu_poll.replace("-", "."))
 tars.chat_postMessage(channel=sf_ta, text=text)
 tars.chat_postMessage(channel=orientation_assignments, text=text)
 tars.chat_postMessage(channel=orientation_project, text=text)
+tars.chat_postMessage(channel=general, text=text)
