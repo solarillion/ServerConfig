@@ -19,6 +19,7 @@ tars = slack.WebClient(token=tars_token)
 sf_ta = keys["sf_ta"]
 orientation_assignments = keys["orientation_assignments"]
 orientation_project = keys["orientation_project"]
+general = keys["general"]
 
 config = {
   "apiKey": keys["tars_fb_key"],
@@ -34,7 +35,7 @@ fri_sun_poll = db.child(k).child("tapoll").child("frisun").get().val()
 poll = db.child(k).child("polls").child(fri_sun_poll).get().val()
 db.child(k).child("polls").child(fri_sun_poll).remove()
 
-text = "TA Hours for Friday (" + friday.strftime("%d-%m-%Y") + ") through Sunday (" + sunday.strftime("%d-%m-%Y") + ") :\n"
+text = "TA Hours for Friday (" + friday.strftime("%d-%m-%Y") + ") to Sunday (" + sunday.strftime("%d-%m-%Y") + ") :\n"
 for block in poll["message"][1:-3]:
 	try:
 		text += block["text"]["text"].split("`")[0].strip() + " " + block["text"]["text"].split("`")[2] + "\n"
