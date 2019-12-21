@@ -22,15 +22,19 @@ all_users = tars.users_list().data["members"]
 with open("credentials/all_users.pkl", "wb") as f:
     pkl.dump(all_users, f)
 
+admins = []
 tas = []
 orientees = []
 groups = tars.groups_list().data["groups"]
 for group in groups:
+    if group["id"] == keys["server_admin"]:
+        admins = group["members"]
     if group["id"] == keys["sf_ta"]:
         tas = group["members"]
     if group["id"] == keys["orientation_assignments"] or group["id"] == keys["orientation_project"]:
         orientees += group["members"]
 
+admins = set(admins)
 tas = set(tas)
 current_orientees = set(tars_db.child(keys["key_fb_tars"]).child("orientee").get().val())
 orientees = set(orientees)
@@ -42,7 +46,10 @@ for i in orientees:
     orientees_not_added.append(tars.users_info(user=i).data["user"]["profile"]["real_name"])
 
 tars_db.child(keys["key_fb_tars"]).child("ta").remove()
+tars_db.child(keys["key_fb_tars"]).child("admin").remove()
 for i in tas:
+    tars_db.child(keys["key_fb_tars"]).child("ta").update({str(i): str(tars.users_info(user=i).data["user"]["profile"]["real_name"])})
+for i in admins:
     tars_db.child(keys["key_fb_tars"]).child("ta").update({str(i): str(tars.users_info(user=i).data["user"]["profile"]["real_name"])})
 
 tars.chat_postMessage(channel=keys["tars_admin"], text="Orientees who haven't been added to the database: " + str(orientees_not_added))
