@@ -12,7 +12,6 @@ function setupteam() {
   cd /miniconda3/envs/
   chown -R $1:$1 $1
   cd /
-  python -m ipykernel install --name=$1
   echo conda_init_code >> /hdd/$1/.bashrc
   echo "conda activate $1" >> /hdd/$1/.bashrc
   echo "# <<< conda initialize <<<" >> /hdd/$1/.bashrc
