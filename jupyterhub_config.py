@@ -42,7 +42,7 @@
 ## Grant admin users permission to access single-user servers.
 #  
 #  Users should be properly informed if this is enabled.
-#c.JupyterHub.admin_access = False
+c.JupyterHub.admin_access = True
 
 ## DEPRECATED since version 0.7.2, use Authenticator.admin_users instead.
 #c.JupyterHub.admin_users = set()
@@ -154,7 +154,7 @@
 #c.JupyterHub.cookie_secret_file = 'jupyterhub_cookie_secret'
 
 ## The location of jupyterhub data files (e.g. /usr/local/share/jupyterhub)
-#c.JupyterHub.data_files_path = '/home/sfserver/miniconda3/share/jupyterhub'
+c.JupyterHub.data_files_path = '/miniconda3/share/jupyterhub'
 
 ## Include any kwargs to pass to the database connection. See
 #  sqlalchemy.create_engine for details.
@@ -768,7 +768,7 @@ c.Spawner.default_url = '/lab'
 #  Admin access should be treated the same way root access is.
 #  
 #  Defaults to an empty set, in which case no user has admin access.
-#c.Authenticator.admin_users = set()
+c.Authenticator.admin_users = set('sfserver')
 
 ## Automatically begin the login process
 #  

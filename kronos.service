@@ -6,7 +6,7 @@ After=ngrok.service
 [Service]
 ExecStartPre=/bin/sleep 10
 EnvironmentFile=/lib/systemd/system/kronos.env
-ExecStart=/home/sfserver/miniconda3/bin/python /home/sfserver/utils/Kronos/app.py
+ExecStart=/miniconda3/bin/python /home/sfserver/utils/Kronos/app.py
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
 IgnoreSIGPIPE=true

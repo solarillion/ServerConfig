@@ -18,10 +18,10 @@
 # Do NOT "set -e"
 
 # PATH should only include /usr/* if it runs after the mountnfs.sh script
-PATH=/home/sfserver/miniconda3/bin:/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
+PATH=/miniconda3/bin:/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
 DESC="Multi-user server for Jupyter notebooks"
 NAME=jupyterhub
-DAEMON=/home/sfserver/miniconda3/bin/jupyterhub
+DAEMON=/miniconda3/bin/jupyterhub
 DAEMON_ARGS="--config=/etc/jupyterhub/jupyterhub_config.py"
 PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
