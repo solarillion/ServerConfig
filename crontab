@@ -1,5 +1,6 @@
 0 19 * * 6 /miniconda3/bin/python3 /home/sfserver/config/request_office_hours.py
 0 05 * * 0 /miniconda3/bin/python3 /home/sfserver/config/update_database.py
+0 05 * * 0 /miniconda3/bin/conda env export > /home/sfserver/config/environment.yml
 0 17 * * 0 /miniconda3/bin/python3 /home/sfserver/config/remind_office_hours.py
 0 22 * * 0 /miniconda3/bin/python3 /home/sfserver/config/post_office_hours.py
 0 19 * * 5 /miniconda3/bin/python3 /home/sfserver/config/request_ta_hours.py

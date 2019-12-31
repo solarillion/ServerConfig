@@ -1,0 +1,19 @@
+# Author: Nanda H Krishna (https://github.com/nandahkrishna)
+# Use as root
+
+function addteam() {
+  adduser --home /hdd/$1 --shell/bin/bash $1
+}
+
+# Once this is done, login to the new user account, logout and execute the following as root
+
+function setupteam() {
+  conda env create -n $1 -f=environment.yml
+  cd /miniconda3/envs/
+  chown -R $1:$1 $1
+  cd /
+  python -m ipykernel install --name=$1
+  echo conda_init_code >> /hdd/$1/.bashrc
+  echo "conda activate $1" >> /hdd/$1/.bashrc
+  echo "# <<< conda initialize <<<" >> /hdd/$1/.bashrc
+}
