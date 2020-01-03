@@ -2,7 +2,7 @@
 # Use as root
 
 function addteam() {
-  adduser --home /hdd/$1 --shell/bin/bash $1
+  adduser --home /hdd/$1 --shell /bin/bash $1
 }
 
 # Once this is done, login to the new user account, logout and execute the following as root
@@ -12,7 +12,7 @@ function setupteam() {
   cd /miniconda3/envs/
   chown -R $1:$1 $1
   cd /
-  echo conda_init_code >> /hdd/$1/.bashrc
+  cat conda_init_code >> /hdd/$1/.bashrc
   echo "conda activate $1" >> /hdd/$1/.bashrc
   echo "# <<< conda initialize <<<" >> /hdd/$1/.bashrc
 }
