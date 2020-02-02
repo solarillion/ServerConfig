@@ -5,7 +5,7 @@ tunnels:
     addr: 8000
     proto: http
     bind_tls: true
-  kronos:
+  keeweb:
     addr: 7277
     proto: http
     bind_tls: true

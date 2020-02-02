@@ -8,12 +8,12 @@ from credentials.keys import *
 
 rebrandly_key = keys["rebrandly"]
 jupyterhub_link_id = keys["jupyterhub"]
-kronos_link_id = keys["kronos"]
+keeweb_link_id = keys["keeweb"]
 slack_key = keys["slack"]
 server_users = keys["server_users"]
 
 jupyterhub = requests.get("http://localhost:6001/api/tunnels/jupyterhub")
-kronos = requests.get("http://localhost:6001/api/tunnels/kronos")
+keeweb = requests.get("http://localhost:6001/api/tunnels/keeweb")
 ssh = requests.get("http://localhost:6001/api/tunnels/ssh")
 
 jupyterhub_link_request = {
@@ -24,12 +24,12 @@ jupyterhub_link_request = {
   "shortUrl": "rebrand.ly/sf_jupyter"
 }
 
-kronos_link_request = {
-  "id": kronos_link_id,
-  "destination": kronos.json()["public_url"],
-  "title": "SF Kronos",
+keeweb_link_request = {
+  "id": keeweb_link_id,
+  "destination": keeweb.json()["public_url"],
+  "title": "SF KeeWeb",
   "favourite": False,
-  "shortUrl": "rebrand.ly/sf_kronos"
+  "shortUrl": "rebrand.ly/sf_keeweb"
 }
 
 request_headers = {
@@ -40,10 +40,10 @@ request_headers = {
 r = requests.post("https://api.rebrandly.com/v1/links/" + str(jupyterhub_link_id), data=json.dumps(jupyterhub_link_request), headers=request_headers)
 link = r.json()
 
-r = requests.post("https://api.rebrandly.com/v1/links/" + str(kronos_link_id), data=json.dumps(kronos_link_request), headers=request_headers)
+r = requests.post("https://api.rebrandly.com/v1/links/" + str(keeweb_link_id), data=json.dumps(keeweb_link_request), headers=request_headers)
 link = r.json()
 
 ssh_ngrok_port = ssh.json()["public_url"].split(":")[2]
 
 tars = slack.WebClient(slack_key)
-tars.chat_postMessage(channel=server_users, text="And we're back on. *flashes cue light*­\nJupyterHub: " + str(jupyterhub.json()["public_url"]) + "\nVisit rebrand.ly/sf_jupyter to access JupyterHub.\nKronos: " + str(kronos.json()["public_url"]) + "\nVisit rebrand.ly/sf_kronos to access Kronos.\nSSH: "+ str(ssh.json()["public_url"]) + "\nTo access the server over SSH, run\n`ssh USER@0.tcp.ngrok.io -p" + ssh_ngrok_port +"`\nin your Terminal, replacing USER with your server username.")
+tars.chat_postMessage(channel=server_users, text="And we're back on. *flashes cue light*­\nJupyterHub: " + str(jupyterhub.json()["public_url"]) + "\nVisit rebrand.ly/sf_jupyter to access JupyterHub.\nKeeWeb: " + str(keeweb.json()["public_url"]) + "\nVisit rebrand.ly/sf_keeweb to access KeeWeb.\nSSH: "+ str(ssh.json()["public_url"]) + "\nTo access the server over SSH, run\n`ssh USER@0.tcp.ngrok.io -p" + ssh_ngrok_port +"`\nin your Terminal, replacing USER with your server username.")
