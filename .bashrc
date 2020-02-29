@@ -118,6 +118,23 @@ fi
 
 source ~/.git_shortcuts
 alias ngrok="~/./ngrok"
+function shutdown() {
+  if [ $# -eq 0 ]
+  then
+    python /home/sfserver/config/warn_users.py "now"
+    sleep 2
+    /sbin/shutdown now
+  else
+    python /home/sfserver/config/warn_users.py "in $1 minute(s)"
+    sleep 2
+    /sbin/shutdown "+$1"
+  fi
+}
+function reboot() {
+  python /home/sfserver/config/warn_users.py "now"
+  sleep 2
+  /sbin/reboot
+}
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
