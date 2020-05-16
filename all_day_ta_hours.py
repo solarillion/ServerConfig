@@ -18,7 +18,7 @@ tars_fb_config = {
 tars_fb = pyrebase.initialize_app(tars_fb_config)
 db = tars_fb.database()
 
-ts = open("message.txt", "r").read()
+ts = open("credentials/message.txt", "r").read()
 q = "*Teaching Assistant Hours for " + ts + "*"
 poll = db.child(keys["key_fb_tars"]).child("polls").get().val()
 poll = dict(zip(poll.keys(), poll.values()))
@@ -46,5 +46,5 @@ i = i % 7
 days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 message = tars.chat_postMessage(channel=ta_group, text="<@" + tars_id + "> poll \"Teaching Assistant Hours for " + days[i] + "\" \"11:00-12:30\" \"14:00-16:00\" \"16:00-18:00\" \"18:00-20:00\"", as_user=True)
 
-with open("message.txt", "w") as f:
+with open("credentials/message.txt", "w") as f:
     f.write(days[i])
