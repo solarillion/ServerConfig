@@ -151,3 +151,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+export PATH="$PATH:/usr/local/cuda-10.0/bin"
+export LD_LIBRARY_PATH="/usr/local/cuda-10.0/lib64"
+export CUDA_DIR="/usr/local/cuda-10.0"
