@@ -1,11 +1,34 @@
-0 19 * * 6 /miniconda3/bin/python3 /home/sfserver/config/request_office_hours.py
-0 05 * * 0 /miniconda3/bin/python3 /home/sfserver/config/update_database.py
-0 05 * * 0 /miniconda3/bin/conda env export > /home/sfserver/config/environment.yml
-0 08 * * 0 /miniconda3/bin/python3 /home/sfserver/config/track_orientees.py
-0 17 * * 0 /miniconda3/bin/python3 /home/sfserver/config/remind_office_hours.py
-0 22 * * 0 /miniconda3/bin/python3 /home/sfserver/config/post_office_hours.py
-0 19 * * 5 /miniconda3/bin/python3 /home/sfserver/config/request_ta_hours.py
-0 08 * * 0 /miniconda3/bin/python3 /home/sfserver/config/remind_mon_thu_ta_hours.py
-5 09 * * 0 /miniconda3/bin/python3 /home/sfserver/config/post_mon_thu_ta_hours.py
-0 08 * * 4 /miniconda3/bin/python3 /home/sfserver/config/remind_fri_sun_ta_hours.py
-5 09 * * 4 /miniconda3/bin/python3 /home/sfserver/config/post_fri_sun_ta_hours.py
+# Edit this file to introduce tasks to be run by cron.
+# 
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+# 
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').# 
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+# 
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+# 
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+# 
+# For more information see the manual pages of crontab(5) and cron(8)
+# 
+# m h  dom mon dow   command
+0 19 * * 6 /miniconda3/bin/python3 /home/sfserver/config/request_office_hours.py && curl -fsS --retry 3 https://hc-ping.com/e5bcb985-4981-4cd6-9c24-58e035a8ed3d > /dev/null
+0 05 * * 0 /miniconda3/bin/python3 /home/sfserver/config/update_database.py && curl -fsS --retry 3 https://hc-ping.com/395d7605-e36e-4893-b3ed-9b80c78033d0 > /dev/null
+0 05 * * 0 /miniconda3/bin/conda env export > /home/sfserver/config/environment.yml && curl -fsS --retry 3 https://hc-ping.com/65828957-74e6-4052-bdb5-342f5e03f30d > /dev/null
+0 08 * * 0 /miniconda3/bin/python3 /home/sfserver/config/track_orientees.py && curl -fsS --retry 3 https://hc-ping.com/b1e205c6-f5ca-4b6d-8b8c-5d7095e92718 > /dev/null
+0 17 * * 0 /miniconda3/bin/python3 /home/sfserver/config/remind_office_hours.py && curl -fsS --retry 3 https://hc-ping.com/3d64fcd6-4455-4d1a-8f98-710029e4735a > /dev/null
+0 22 * * 0 /miniconda3/bin/python3 /home/sfserver/config/post_office_hours.py && curl -fsS --retry 3 https://hc-ping.com/743f2ca9-aa61-4c62-b403-f349b68625e3 > /dev/null
+# 0 19 * * 5 /miniconda3/bin/python3 /home/sfserver/config/request_ta_hours.py && curl -fsS --retry 3 https://hc-ping.com/a9cb1c01-6bc7-43f2-b310-bc7bff768b8b > /dev/null
+# 0 08 * * 0 /miniconda3/bin/python3 /home/sfserver/config/remind_mon_thu_ta_hours.py && curl -fsS --retry 3 https://hc-ping.com/0d75841d-de1d-4bcf-a510-d89840b83b35 > /dev/null
+# 5 09 * * 0 /miniconda3/bin/python3 /home/sfserver/config/post_mon_thu_ta_hours.py && curl -fsS --retry 3 https://hc-ping.com/6e82dcac-9d3c-497a-a243-4bbd0ece55f6 > /dev/null
+# 0 08 * * 4 /miniconda3/bin/python3 /home/sfserver/config/remind_fri_sun_ta_hours.py && curl -fsS --retry 3 https://hc-ping.com/befdb1e7-1040-4197-b0ba-4792acfbfef3 > /dev/null
+# 5 09 * * 4 /miniconda3/bin/python3 /home/sfserver/config/post_fri_sun_ta_hours.py && curl -fsS --retry 3 https://hc-ping.com/11047e4e-4476-47e7-aa2e-61bc35f22ded > /dev/null
+0 19 * * * /miniconda3/bin/python3 /home/sfserver/config/all_day_ta_hours.py && curl -fsS --retry 3 https://hc-ping.com/3e1a17db-29e5-4ac4-9367-ba41d8ae0d82 > /dev/null
