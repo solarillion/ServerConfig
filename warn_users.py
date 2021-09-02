@@ -2,13 +2,17 @@
 
 import os
 import sys
-import slack
+from slack_bolt import App
 from credentials.keys import *
 
-slack_key = keys["slack"]
+tars_token = keys["slack"]
+tars_secret = keys["signing_secret"]
+tars = App(token=tars_token, signing_secret=tars_secret)
 server_users = keys["server_users"]
 
 duration = sys.argv[1]
 
-tars = slack.WebClient(slack_key)
-tars.chat_postMessage(channel=server_users, text="Server down " + duration + ". Hopefully, we'll be back on soon.")
+tars.client.chat_postMessage(
+    channel=server_users,
+    text="Server down " + duration + ". Hopefully, we'll be back on soon.",
+)
