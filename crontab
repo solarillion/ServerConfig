@@ -21,7 +21,7 @@
 # 
 # m h  dom mon dow   command
 0 19 * * 6 /miniconda3/bin/python3 /home/sfserver/config/request_office_hours.py && curl -fsS --retry 3 https://hc-ping.com/e5bcb985-4981-4cd6-9c24-58e035a8ed3d > /dev/null
-0 05 * * 0 /miniconda3/bin/python3 /home/sfserver/config/update_database.py && curl -fsS --retry 3 https://hc-ping.com/395d7605-e36e-4893-b3ed-9b80c78033d0 > /dev/null
+# 0 05 * * 0 /miniconda3/bin/python3 /home/sfserver/config/update_database.py && curl -fsS --retry 3 https://hc-ping.com/395d7605-e36e-4893-b3ed-9b80c78033d0 > /dev/null
 0 05 * * 0 /miniconda3/bin/conda env export > /home/sfserver/config/environment.yml && curl -fsS --retry 3 https://hc-ping.com/65828957-74e6-4052-bdb5-342f5e03f30d > /dev/null
 0 08 * * 0 /miniconda3/bin/python3 /home/sfserver/config/track_orientees.py && curl -fsS --retry 3 https://hc-ping.com/b1e205c6-f5ca-4b6d-8b8c-5d7095e92718 > /dev/null
 0 17 * * 0 /miniconda3/bin/python3 /home/sfserver/config/remind_office_hours.py && curl -fsS --retry 3 https://hc-ping.com/3d64fcd6-4455-4d1a-8f98-710029e4735a > /dev/null
@@ -31,4 +31,4 @@
 # 5 09 * * 0 /miniconda3/bin/python3 /home/sfserver/config/post_mon_thu_ta_hours.py && curl -fsS --retry 3 https://hc-ping.com/6e82dcac-9d3c-497a-a243-4bbd0ece55f6 > /dev/null
 # 0 08 * * 4 /miniconda3/bin/python3 /home/sfserver/config/remind_fri_sun_ta_hours.py && curl -fsS --retry 3 https://hc-ping.com/befdb1e7-1040-4197-b0ba-4792acfbfef3 > /dev/null
 # 5 09 * * 4 /miniconda3/bin/python3 /home/sfserver/config/post_fri_sun_ta_hours.py && curl -fsS --retry 3 https://hc-ping.com/11047e4e-4476-47e7-aa2e-61bc35f22ded > /dev/null
-0 19 * * * /miniconda3/bin/python3 /home/sfserver/config/all_day_ta_hours.py && curl -fsS --retry 3 https://hc-ping.com/3e1a17db-29e5-4ac4-9367-ba41d8ae0d82 > /dev/null
+# 0 19 * * * /miniconda3/bin/python3 /home/sfserver/config/all_day_ta_hours.py && curl -fsS --retry 3 https://hc-ping.com/3e1a17db-29e5-4ac4-9367-ba41d8ae0d82 > /dev/null

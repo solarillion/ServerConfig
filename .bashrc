@@ -151,6 +151,10 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-export PATH="$PATH:/usr/local/cuda-10.0/bin"
-export LD_LIBRARY_PATH="/usr/local/cuda-10.0/lib64"
-export CUDA_DIR="/usr/local/cuda-10.0"
+export PATH="$PATH:/usr/local/cuda-11.0/bin:/usr/games"
+export LD_LIBRARY_PATH="/usr/local/cuda-11.0/lib64:$LD_LIBRARY_PATH"
+export CUDA_DIR="/usr/local/cuda-11.0"
+
+echo
+figlet "SF Server"
+echo

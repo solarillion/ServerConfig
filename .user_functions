@@ -15,4 +15,5 @@ function setupteam() {
   cat conda_init_code >> /hdd/$1/.bashrc
   echo "conda activate $1" >> /hdd/$1/.bashrc
   echo "# <<< conda initialize <<<" >> /hdd/$1/.bashrc
+  echo -e "\necho\nfiglet $2\necho" >> /hdd/$1/.bashrc
 }
