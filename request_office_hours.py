@@ -1,8 +1,13 @@
-import slack
+from slack_bolt import App
 from credentials.keys import *
 
-tars_token = keys["slack"]
+tars_user_token = keys["sfserver"]
 tars_id = keys["tars"]
-tars = slack.WebClient(token=tars_token)
+tars_secret = keys["signing_secret"]
 
-tars.chat_postMessage(channel=tars_id, text="Request office hours.")
+tars = App(
+	token=tars_user_token,
+	signing_secret=tars_secret
+)
+
+tars.client.chat_postMessage(channel=tars_id, text="request office hours")
